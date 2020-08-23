@@ -1,10 +1,16 @@
-<div>
+<div class="container">
   <h1>Quotes App</h1>
-  <ul>
-    <li *ngFor='let quote of quotes'>
-      {{quote.name}}
-      <app-quote-detail [quote]='quote'></app-quote-detail>
-    </li>
-  </ul>
+  <hr>
+  <div>
+    <ul>
+      <li *ngFor='let quote of quotes; let i=index'>
+        {{quote.name}}
+        <button (click)='toggleDetails(i)'>Toggle Details</button>
+        <app-quote-detail *ngIf='quote.showDescription' [quote]='quote' (isComplete)='completeQuote ($event,i)'>
+        </app-quote-detail>
+      </li>
+    </ul>
+  </div>
   <p>The Quotes are informative right? Add some which are thoughful and have others evaluate it/them.</p>
+  <app-quote-form></app-quote-form>
 </div>

@@ -7,11 +7,19 @@ import { Quote } from "../quote";
 })
 export class QuoteComponent implements OnInit {
   quotes: Quote[] = [
-    { id: 1, name: 'Quote 1', description: '\"Kaffirs are as a rule uncivilised—the convicts even more so. They are troublesome, very dirty and live almost like animals\" by Mahatma Gandhi' },
-    { id: 2, name: 'Quote 2', description: '\"Never trust a Jew! by Nikola Tesla\"' },
-    { id: 3, name: 'Quote 3', description: '\"When a woman has scholarly inclinations there is usually something wrong with her sexual organs. by Friedrich Nietzsche\"' },
-    { id: 4, name: 'Quote 4', description: '\“Educating a beautiful woman is like pouring honey into a fine Swiss watch: everything stops. by Kurt Vonnegut\”' },
+    new Quote(1, 'Quote 1', '\"Kaffirs are as a rule uncivilised—the convicts even more so. They are troublesome, very dirty and live almost like animals\" by Mahatma Gandhi'),
+    new Quote(2, 'Quote 2', '\"Never trust a Jew! by Nikola Tesla\"'),
+    new Quote(3, 'Quote 3', '\"When a woman has scholarly inclinations there is usually something wrong with her sexual organs. by Friedrich Nietzsche\"'),
+    new Quote(4, 'Quote 4', '\“Educating a beautiful woman is like pouring honey into a fine Swiss watch: everything stops. by Kurt Vonnegut\”'),
   ];
+  toggleDetails(index) {
+    this.quotes[index].showDescription = !this.quotes[index].showDescription;
+  }
+  completeQuote(isComplete, index) {
+    if (isComplete) {
+      this.quotes.splice(index, 1);
+    }
+  }
   constructor() { }
 
   ngOnInit(): void {
