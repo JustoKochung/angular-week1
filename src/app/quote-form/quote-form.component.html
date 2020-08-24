@@ -3,29 +3,57 @@
     <h2 class="text-center">Add a new Quote</h2>
     <hr>
     <form #quoteForm='ngForm'>
+
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" placeholder="Your name.." id="name" [(ngModel)]="newQuote.name"
-          name="name" #name='ngModel' required>
-        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+        <input type="text" class="form-control" placeholder="Your name.." id="creator" [(ngModel)]="newQuote.creator"
+          name="creator" #creator='ngModel' required>
+        <div [hidden]="creator.valid || creator.pristine" class="alert alert-danger">
           <p>Name is required</p>
         </div>
-        Display {{newQuote.name}}
       </div>
+      {{newQuote.creator}}
+
       <div class="form-group">
         <label for="author">Author</label>
-        <input type="text" class="form-control" id="author" placeholder="Original author of the quote.." required>
-        Display{{newQuote.author}}
+        <input type="text" class="form-control" id="author" placeholder="Original author of the quote.."
+          [(ngModel)]='newQuote.author' name='author' #author='ngModel' required>
+        <div [hidden]="author.valid || author.pristine" class="alert alert-danger">
+          <p>Author is required</p>
+        </div>
       </div>
+      {{newQuote.author}}
+
       <div class="form-group">
         <label for="quote">Your Quote</label>
         <textarea class="form-control" id="quote-area" rows="4" placeholder="Describe your quote here.."
-          required></textarea>
+          [(ngModel)]='newQuote.quoteName' name="quoteName" #quoteName='ngModel' required></textarea>
+        <div [hidden]='quoteName.valid || quoteName.pristine' class="alert alert-danger">
+          <p>New Quote is Required</p>
+        </div>
       </div>
       <div>
-        <button type="submit" class="btn btn-success">Add Quote</button>&nbsp; &nbsp; &nbsp; &nbsp; <input type="date"
-          id="add" required>
+        {{newQuote.quoteName}}
       </div>
+
+      <br>
+      <br>
+      <div>
+        <div>
+          <input type="date" id="add" [(ngModel)]='newQuote.dateCreated' name="dateCreated" #dateCreated='ngModel'
+            required>
+          <div [hidden]='dateCreated.valid || dateCreated.pristine' class="alert alert-danger">
+            <p>Date is Required</p>
+          </div>
+          <br>
+          <div>
+            {{newQuote.dateCreated|date}}
+          </div>
+          <br>
+        </div>
+        <button type="submit" class="btn btn-dark $().button('toggle')">Add Quote</button>
+      </div>
+
     </form>
   </div>
 </div>
