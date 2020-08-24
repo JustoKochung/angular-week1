@@ -9,7 +9,7 @@
             <h5>{{quote.quoteName}}</h5>
           </div>
           <button (click)='toggleDetails(i)'>Expand</button>
-          <app-quote-detail *ngIf='quote.showDescription' [quote]='quote' (isComplete)='completeQuote($event,i)'>
+          <app-quote-detail *ngIf='quote.showDescription' [quote]='quote' (isComplete)='deleteQuote($event,i)'>
           </app-quote-detail>
         </div>
       </div>
