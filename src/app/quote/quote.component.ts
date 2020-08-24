@@ -28,6 +28,12 @@ export class QuoteComponent implements OnInit {
     quote.id = quoteLength + 1;
     this.quotes.push(quote);
   }
+  dislikeQuote(index) {
+    index.dislike += 1;
+  }
+  likeQuote(index) {
+    index.like += 1;
+  }
   constructor() { }
 
   ngOnInit(): void {

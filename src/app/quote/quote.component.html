@@ -8,8 +8,15 @@
           <div>
             <h5>{{quote.quoteName}}</h5>
           </div>
+          <div>
+            <button type="button" (click)="dislikeQuote(quote)" class="btn d-inline btn-outline-success btn-sm vote"><i
+                class="fa fa-thumbs-up"></i></button> Dislike: {{ quote.dislike }}
+            <button type="button" (click)="likeQuote(quote)" class="btn btn-outline-danger btn-sm vote"><i
+                class="fa fa-thumbs-down"></i></button> Like: {{ quote.like }}
+          </div>
           <button (click)='toggleDetails(i)' class="btn btn-info">Expand</button>
-          <app-quote-detail *ngIf='quote.showDescription' [quote]='quote' (isComplete)='deleteQuote($event,i)'>
+          <app-quote-detail *ngIf='quote.showDescription' [quote]='quote' (isComplete)='deleteQuote($event,i)'
+            (dislikeQuote)='dislikeQuote($event)' (likeQuote)='likeQuote($event)'>
           </app-quote-detail>
         </div>
       </div>
@@ -19,16 +26,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-<!-- <div class="mb-2">
-  <button type="button" class="btn btn-success px-3"><i class="far fa-thumbs-down"
-      aria-hidden="true"></i></button>: {{quote.dislike}}
-  <button type="button" class="btn btn-success px-3"><i class="far fa-thumbs-up"
-      aria-hidden="true"></i></button>: {{quote.like}}
-</div>
-<button type="button" (click)='toggleDetails(i)'>Expand</button><br>
-<button type="button">Delete</button>
-<button></button> -->
