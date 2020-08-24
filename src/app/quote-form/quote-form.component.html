@@ -2,7 +2,7 @@
   <div class="jumbotron">
     <h2 class="text-center">Add a new Quote</h2>
     <hr>
-    <form #quoteForm='ngForm'>
+    <form (ngSubmit)='submitQuote()' #quoteForm='ngForm'>
 
       <div class="form-group">
         <label for="name">Name</label>
