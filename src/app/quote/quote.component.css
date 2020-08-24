@@ -2,3 +2,8 @@ hr {
   border: 10px solid green;
   border-radius: 5px;
 }
+
+h1 {
+  font-size: 3.175em !important;
+  color: blueviolet;
+}
