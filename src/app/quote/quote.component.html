@@ -9,9 +9,9 @@
             <h5>{{quote.quoteName}}</h5>
           </div>
           <div>
-            <button type="button" (click)="dislikeQuote(quote)" class="btn d-inline btn-outline-success btn-sm vote"><i
+            <button type="button" (click)="dislikeQuote(quote)" class="btn btn-outline-danger btn-sm"><i
                 class="fa fa-thumbs-up"></i></button> Dislike: {{ quote.dislike }}
-            <button type="button" (click)="likeQuote(quote)" class="btn btn-outline-danger btn-sm vote"><i
+            <button type="button" (click)="likeQuote(quote)" class="btn btn-outline-success btn-sm "><i
                 class="fa fa-thumbs-down"></i></button> Like: {{ quote.like }}
           </div>
           <button (click)='toggleDetails(i)' class="btn btn-info">Expand</button>
