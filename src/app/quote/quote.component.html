@@ -1,28 +1,38 @@
-<div class="container">
-  <div class="jumbotron">
-    <h1 class="text-center">Quotes App</h1>
-    <hr>
-    <div class="row">
-      <div class="col-sm-7">
-        <div *ngFor="let quote of quotes; let i = index">
-          <div>
-            <h5>{{quote.quoteName}}</h5>
+<div class="container-fluid">
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="text-center">Quotes App</h1>
+      <br>
+      <div class="row">
+        <div class="col-sm-7 area">
+          <h6 class="feature">Featured Quotes</h6>
+          <div *ngFor="let quote of quotes; let i = index">
+            <hr class="expand-line">
+            <div>
+              <h5>{{quote.quoteName}}</h5>
+            </div>
+            <div>
+              <button type="button" (click)="dislikeQuote(quote)" class="btn btn-outline-danger btn-sm"><i
+                  class="fa fa-thumbs-up"></i></button> Dislike: {{ quote.dislike }}
+              <button type="button" (click)="likeQuote(quote)" class="btn btn-outline-success btn-sm "><i
+                  class="fa fa-thumbs-down"></i></button> Like: {{ quote.like }}
+            </div>
+            <button (click)='toggleDetails(i)' class="btn btn-info">Expand</button>
+            <app-quote-detail *ngIf='quote.showDescription' [quote]='quote' (isComplete)='deleteQuote($event,i)'
+              (dislikeQuote)='dislikeQuote($event)' (likeQuote)='likeQuote($event)'>
+            </app-quote-detail>
+
           </div>
-          <div>
-            <button type="button" (click)="dislikeQuote(quote)" class="btn btn-outline-danger btn-sm"><i
-                class="fa fa-thumbs-up"></i></button> Dislike: {{ quote.dislike }}
-            <button type="button" (click)="likeQuote(quote)" class="btn btn-outline-success btn-sm "><i
-                class="fa fa-thumbs-down"></i></button> Like: {{ quote.like }}
-          </div>
-          <button (click)='toggleDetails(i)' class="btn btn-info">Expand</button>
-          <app-quote-detail *ngIf='quote.showDescription' [quote]='quote' (isComplete)='deleteQuote($event,i)'
-            (dislikeQuote)='dislikeQuote($event)' (likeQuote)='likeQuote($event)'>
-          </app-quote-detail>
+        </div>
+        <div class="col-sm-5">
+          <app-quote-form (addQuote)='addNewQuote($event)'></app-quote-form>
         </div>
       </div>
-      <div class="col-sm-5">
-        <app-quote-form (addQuote)='addNewQuote($event)'></app-quote-form>
-      </div>
+    </div>
+    <div>
+      <footer class="jumbotron">
+        <p class="footer">Justo Ochung <br>2020</p>
+      </footer>
     </div>
   </div>
 </div>

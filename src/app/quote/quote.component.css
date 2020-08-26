@@ -1,9 +1,44 @@
-hr {
-  border: 10px solid green;
+#main-line {
+  border: 6px solid green;
   border-radius: 5px;
+}
+
+.expand-line {
+  border: 0.1px solid green;
 }
 
 h1 {
   font-size: 3.175em !important;
-  color: blueviolet;
+  color: green;
+}
+
+.feature {
+  font-size: smaller;
+  font-style: oblique;
+}
+
+.footer {
+  text-align: center;
+}
+
+footer {
+  background-image: url("https://cdn.nimbusthemes.com/2017/09/09233341/Free-Nature-Backgrounds-Seaport-During-Daytime-by-Pexels.jpeg");
+  font-size: large;
+  font-weight: bold;
+  font-style: italic;
+  color: white;
+}
+
+
+
+.jumbotron {
+  background-color: white;
+}
+
+.container-fluid {
+  background-color: green;
+}
+
+.area {
+  background-image: url("https://weststreetwillyseatery.com/wp-content/uploads/2016/03/Top-10-best-Simple-Awesome-Background-Images-for-Your-Website-or-Blog2.jpg");
 }
